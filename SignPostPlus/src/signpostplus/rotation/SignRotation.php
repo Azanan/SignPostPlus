@@ -4,7 +4,10 @@ namespace signpostplus\rotation;
 
 //use文
 use pocketmine\event\Listener;
-
+use pocketmine\event\player\PlayerInteractEvent;
+use pocketmine\block\SignPost;
+use pocketmine\item\Item;
+use pocketmine\item\Stick;
 
 class SignRotation implements Listener
 {
@@ -27,8 +30,15 @@ class SignRotation implements Listener
 	}
 
 
-	public function functionName($value='')
+	public function onTap(PlayerInteractEvent $event)
 	{
-		# code...
+		$item = $event->getItem();
+		$block = $event->getBlock();
+		if ($item instanceof Stick) {
+			if ($block instanceof SignPost) {
+				$damage = $block->getDamage();
+				$block->setDamage($damage +1);
+			}
+		}
 	}
 }
