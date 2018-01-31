@@ -10,6 +10,8 @@ use pocketmine\plugin\PluginBase;
 use signpostplus\edit\SignEdit;
 use signpostplus\edit\utils\SignEditAPI;
 
+use signpostplus\rotation\SignRotation;
+
 class SignPostPlus extends PluginBase
 {
 
@@ -24,7 +26,7 @@ class SignPostPlus extends PluginBase
     {
         $pluginManager = $this->getServer()->getPluginManager();
         $pluginManager->registerEvents(new SignEdit($this, $this->api), $this);
-        # $pluginManager->registerEvents(new クラス名($this), $this);
+        $pluginManager->registerEvents(new SignRotation($this), $this);
     }
 
 
