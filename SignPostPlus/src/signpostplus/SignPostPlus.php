@@ -10,6 +10,7 @@ use pocketmine\plugin\PluginBase;
 use signpostplus\edit\SignEdit;
 use signpostplus\edit\utils\SignEditAPI;
 
+// SignRotationのUSE文
 use signpostplus\rotation\SignRotation;
 
 class SignPostPlus extends PluginBase
@@ -19,6 +20,16 @@ class SignPostPlus extends PluginBase
     {
         $this->registerUtils();
         $this->registerEvents();
+        $this->getLogger()->info("§l§a──────────────§eSignPostPlus§a───────────────────");
+        $this->getLogger()->info("  §2製作§r: OtorisanVardoaieuo");
+        $this->getLogger()->info("   §2連絡§r: §bhttps://twitter.com/10ripon_obs ");
+        $this->getLogger()->info("  §2製作§r: aieuo");
+        $this->getLogger()->info("   §2連絡§r: §bhttps://twitter.com/aieuo421 ");
+        $this->getLogger()->info("§l§a──────────────────────────────────────────────");
+        $this->getLogger()->info("  §c二次配布は禁止とします");
+        $this->getLogger()->info("  §c同梱のライセンスに従ってください");
+        $this->getLogger()->info("  §6何かあればツイッターで連絡お願いします");
+        $this->getLogger()->info("§l§a──────────────────────────────────────────────");
     }
 
 

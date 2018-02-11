@@ -81,6 +81,10 @@ class SignEdit implements Listener
 				}
 
 				if ((int)$data == 4) {
+					if (empty($player->signedit["copydatas"])) {
+						$player->sendMessage("§c> 看板のコピーが一つもされていません");
+						return;
+					}
 					$this->getApi()->requestUI(SignEditAPI::FORM_TYPE_DELPASTE, $player);
 					return;
 				}
@@ -158,10 +162,6 @@ class SignEdit implements Listener
 			case SignEditAPI::FORM_TYPE_DELPASTE:
 				if ($pk->formData == "null\n") {
 					$this->getApi()->requestUI(SignEditAPI::FORM_TYPE_SELECT, $player);
-					return;
-				}
-				if (empty($player->signedit["copydatas"])) {
-					$player->sendMessage("§c> 看板のコピーデータが一つもありません");
 					return;
 				}
 
