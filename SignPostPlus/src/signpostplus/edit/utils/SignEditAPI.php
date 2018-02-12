@@ -15,11 +15,11 @@ class SignEditAPI
 	const FORM_TYPE_COPY_ERROR = 42352;
 	const FORM_TYPE_DELPASTE = 42353;
 
-	const FORM_IMAGE_EDIT = ""; //TODO
-	const FORM_IMAGE_PASTE = ""; //TODO
-	const FORM_IMAGE_COPY = ""; //TODO
-	const FORM_IMAGE_INITIAL = ""; //TODO
-	const FORM_IMAGE_DELPASTE = ""; //TODO
+	const FORM_IMAGE_EDIT = "https://i.imgur.com/QmA6UZR.png";
+	const FORM_IMAGE_PASTE = "https://i.imgur.com/hA4v71w.png";
+	const FORM_IMAGE_COPY = "https://i.imgur.com/vGXIZhS.png";
+	const FORM_IMAGE_INITIAL = "https://i.imgur.com/4hBz3Ij.png";
+	const FORM_IMAGE_DELPASTE = "https://i.imgur.com/n8W4leS.png";
 
 
 	public function requestUI($formId, $player, $sign=null)
