@@ -21,7 +21,7 @@ class SignPostPlus extends PluginBase
         $this->registerUtils();
         $this->registerEvents();
         $this->getLogger()->info("§l§a──────────────§eSignPostPlus§a───────────────────");
-        $this->getLogger()->info("  §2製作§r: OtorisanVardoaieuo");
+        $this->getLogger()->info("  §2製作§r: OtorisanVardo");
         $this->getLogger()->info("   §2連絡§r: §bhttps://twitter.com/10ripon_obs ");
         $this->getLogger()->info("  §2製作§r: aieuo");
         $this->getLogger()->info("   §2連絡§r: §bhttps://twitter.com/aieuo421 ");
