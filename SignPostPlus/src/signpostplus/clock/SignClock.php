@@ -6,7 +6,6 @@ namespace signpostplus\clock;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\plugin\PluginEnableEvent;
-use pocketmine\event\plugin\PluginDisableEvent;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\tile\Sign;
 use pocketmine\item\Item;
@@ -54,11 +53,25 @@ class SignClock implements Listener
 				$tile = $player->getLevel()->getTile($block);
 				if ($tile instanceof Sign) {
 					if (isset($this->clockingNow[$tile->getFloorX().$tile->getFloorY().$tile->getFloorZ()])) return;
-					$task = new SignClockTask($this->getOwner(), $this, $tile, $tile->getText(), 0);
+					$xyz = $tile->getFloorX().$tile->getFloorY().$tile->getFloorZ();
+					$task = new SignClockTask($this->getOwner(), $this, $tile, $tile->getText(), $xyz, 0);
 					$this->getServer()->getScheduler()->scheduleRepeatingTask($task, 1*20);
-					$this->clockingNow[$tile->getFloorX().$tile->getFloorY().$tile->getFloorZ()] = true;
+					$this->clockingNow[$xyz] = $task->getTaskId();
 				}
 			}
+		}
+	}
+
+
+	public function onBreak(BlockBreakEvent $event)
+	{
+		$block = $event->getBlock();
+		if ($block instanceof WallSign) {
+			$xyz = $block->getFloorX().$block->getFloorY().$block->getFloorZ();
+			if (!isset($this->clockingNow[$xyz])) return;
+			$id = $this->clockingNow[$xyz];
+			$this->getServer()->getScheduler()->cancelTask($id);
+			unset($this->clockingNow[$xyz]);
 		}
 	}
 }
