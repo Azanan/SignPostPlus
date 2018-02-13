@@ -16,6 +16,9 @@ use signpostplus\rotation\SignRotation;
 // SignClockのUSE文
 use signpostplus\clock\SignClock;
 
+// SignBringのUSE文
+use signpostplus\bring\SignBring;
+
 class SignPostPlus extends PluginBase
 {
 
@@ -42,6 +45,7 @@ class SignPostPlus extends PluginBase
         $pluginManager->registerEvents(new SignEdit($this, $this->api), $this);
         $pluginManager->registerEvents(new SignRotation($this), $this);
         $pluginManager->registerEvents(new SignClock($this), $this);
+        $pluginManager->registerEvents(new SignBring($this), $this);
     }
 
 
