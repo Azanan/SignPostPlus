@@ -24,20 +24,20 @@ class SignCommand implements Listener{
 		if ($block instanceof SignPost || $block instanceof WallSign) {
 			$tile = $player->getLevel()->getTile($block);
 			if (!($tile instanceof Sign)) return;
-			 	$texts =$tile->getText();
-			 	if(substr($texts[0],0,2) == "##"){
-				 	$cmd = "";
-				 	foreach ($texts as $key => $value) {
-				 		$last = substr($value,-1);
-				 		if($last == "-"){
-				 			$value = preg_replace("/-$/","",$value);
-				 		}
-				 		$cmd = $cmd.$value;
-				 		if($key == 3)break;
-				 	}
-				 	$cmd = str_replace("##","",$cmd);
-				 	$this->owner->getServer()->dispatchCommand($player, $cmd);
-				 }
+			$texts =$tile->getText();
+			if(substr($texts[0],0,2) == "##"){
+				$cmd = "";
+				foreach ($texts as $key => $value) {
+					$last = substr($value,-1);
+					if($last == "-"){
+						$value = preg_replace("/-$/","",$value);
+					}
+					$cmd = $cmd.$value;
+					if($key == 3)break;
+				}
+				$cmd = str_replace("##","",$cmd);
+				$this->owner->getServer()->dispatchCommand($player, $cmd);
+			 }
 		}
 	}
 }
