@@ -28,10 +28,10 @@ class SignCommand implements Listener{
 			if(substr($texts[0],0,2) == "##"){
 				$cmd = "";
 				foreach ($texts as $key => $value) {
-					$last = substr($value,-1);
+					/*$last = substr($value,-1);
 					if($last == "-"){
 						$value = preg_replace("/-$/","",$value);
-					}
+					}*/
 					$cmd = $cmd.$value;
 					if($key == 3)break;
 				}
